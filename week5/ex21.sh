@@ -1,6 +1,6 @@
 #!/bin/bash
 
-N=4
+N=5
 
 if [ $# -eq 1 ]; then
     N=$1;
@@ -13,7 +13,7 @@ echo 1 > ex21.txt
 
 for (( i = 1; i <= $N; i++ ))
 do
-	# race condition usually took place after 5 increments
-	./increase.sh ex21.txt&
-	./increase.sh ex21.txt
+	# race condition usually took place after 6 increments
+	./add.sh ex21.txt&
+	./add.sh ex21.txt
 done
