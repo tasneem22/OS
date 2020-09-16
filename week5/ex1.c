@@ -19,7 +19,7 @@ void task1(){
          * Order of printing is not defined.
          * Main thread can sometimes print first,
          * and other times the new thread would print first                                                                      */
-
+         */
     for (i = 0; i < Number_threads; i++){
      pthread_t thread_id;
      pthread_create(&thread_id, NULL, PrintHello, &thread_id);
