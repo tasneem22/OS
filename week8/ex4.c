@@ -5,7 +5,7 @@
 #include <sys/resource.h>
 
 
-#define MB (1000*1000)
+#define MB (1024*1024)
 
 int main()
 {
@@ -14,12 +14,10 @@ int main()
     size_t sz = 0;
     struct rusage usage;
 
-
-
     printf("| User CPU time (usec) | System CPU time (usec) | Page faults (w/o I/O) | Page faults (w/ I/O) | Context switches |\n");
     for( i =0;i < 10;++i){
-        sz+=MB;
-        arr = (int *)realloc(arr , sz);// I use realloc to reallocate memory after adding 10MB at each iteration
+        sz+= 10*MB;
+        arr = realloc(arr , sz);// I use realloc to reallocate memory after adding 10MB at each iteration
         if(arr == NULL) // in order to segmentation fault (core dumped)
 		{
 			printf("Error occured!\n");
